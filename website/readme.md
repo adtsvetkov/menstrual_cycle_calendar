@@ -1,6 +1,6 @@
 ## Часть проекта, содержащая в себе развертывание веб-сайта с возможностью обращения к обученной модели
   
-Веб-сайт развернут по ссылке: https://menstrualcalendar-adtsvetkov.amvera.io/form  
+Веб-сайт развернут по ссылке: https://menstrualcalendar-adtsvetkov.amvera.io/  
 _Логин:_ admin  
 _Пароль:_ admin
 
