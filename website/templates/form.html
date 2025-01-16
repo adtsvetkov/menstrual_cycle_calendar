@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- То что отображается в описании вкладки -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+</head>
+<!-- Основное тело страницы. В style как и ниже по документу прописаны css стили -->
+<body style="font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow-y: auto;">
+     <!-- Блок с кнопками справа сверху -->
+    <div style="position: absolute; top: 20px; right: 80px; display: flex; gap: 10px; align-items: center;">
+    <form action="/logout" method="GET">
+        <button type="submit" style="padding: 5px 10px; border-radius: 10px; background-color: #f44336; color: white; border: none; cursor: pointer;">
+            Logout
+        </button>
+    </form>
+    <a href="/swagger" target="_blank" style="padding: 5px 10px; border-radius: 10px; background-color: #ffcc00; color: white; text-decoration: none; text-align: center; display: inline-block; cursor: pointer;">
+        API Docs
+    </a>
+    </div>
+     <!-- Подложка под ввод данных -->
+    <div style="width: 80%; max-width: 1000px; text-align: center; border: 2px solid #ccc; border-radius: 15px; padding: 20px; background-color: #f7f7f7; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h1 style="margin-bottom: 20px;">Input Form</h1>
+        <form method="POST" action="/form">
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+                <!-- Первая колонка -->
+                <div style="flex: 1; min-width: 250px;">
+                    <!-- Оформление окошка для ввода цифры -->
+                    <label for="CycleNumber">Cycle Number:</label>
+                    <input type="number" id="CycleNumber" name="CycleNumber" min="1" max="45" value="25" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+                    <!-- Оформление окошка с выпадающим списком -->
+                    <label for="Group">Group:</label>
+                    <select id="Group" name="Group" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;">
+                        <option value="1" selected>1</option>
+                        <option value="0">0</option>
+                    </select><br>
+
+                    <label for="CycleWithPeakorNot">Cycle With Peak or Not:</label>
+                    <select id="CycleWithPeakorNot" name="CycleWithPeakorNot" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                    </select><br>
+
+                    <label for="ReproductiveCategory">Reproductive Category:</label>
+                    <select id="ReproductiveCategory" name="ReproductiveCategory" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                    </select><br>
+
+                    <label for="EstimatedDayOfOvulation">Estimated Day of Ovulation:</label>
+                    <input type="number" id="EstimatedDayOfOvulation" name="EstimatedDayOfOvulation" min="6" max="30" value="15" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="LengthOfLuteralPhase">Length of Luteral Phase:</label>
+                    <input type="number" id="LengthOfLuteralPhase" name="LengthOfLuteralPhase" min="1" max="45" value="25" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="FirstDayofHigh">First Day of High:</label>
+                    <input type="number" id="FirstDayofHigh" name="FirstDayofHigh" min="5" max="30" value="18" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+                </div>
+
+                <!-- Вторая колонка -->
+                <div style="flex: 1; min-width: 250px;">
+                    <label for="TotalNumberofHighDays">Total Number of High Days:</label>
+                    <input type="number" id="TotalNumberofHighDays" name="TotalNumberofHighDays" min="1" max="30" value="15" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="TotalHighPostPeak">Total High Post Peak:</label>
+                    <input type="number" id="TotalHighPostPeak" name="TotalHighPostPeak" min="0" max="7" value="4" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="TotalNumberofPeakDays">Total Number of Peak Days:</label>
+                    <input type="number" id="TotalNumberofPeakDays" name="TotalNumberofPeakDays" min="0" max="20" value="10" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="TotalDaysofFertility">Total Days of Fertility:</label>
+                    <input type="number" id="TotalDaysofFertility" name="TotalDaysofFertility" min="1" max="30" value="15" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="TotalFertilityFormula">Total Fertility Formula:</label>
+                    <input type="number" id="TotalFertilityFormula" name="TotalFertilityFormula" min="5" max="40" value="25" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="LengthofMenses">Length of Menses:</label>
+                    <input type="number" id="LengthofMenses" name="LengthofMenses" min="2" max="15" value="5" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;"><br>
+
+                    <label for="TotalMensesScore">Total Menses Score:</label>
+                    <input type="number" id="TotalMensesScore" name="TotalMensesScore" min="2" max="30" value="15" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;"><br>
+
+                </div>
+
+                <!-- Третья колонка -->
+                <div style="flex: 1; min-width: 250px;">
+                    <label for="MensesScoreDayOne">Menses Score Day One:</label>
+                    <select id="MensesScoreDayOne" name="MensesScoreDayOne" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br>
+
+                    <label for="MensesScoreDayTwo">Menses Score Day Two:</label>
+                    <select id="MensesScoreDayTwo" name="MensesScoreDayTwo" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br>
+
+                    <label for="MensesScoreDayThree">Menses Score Day Three:</label>
+                    <select id="MensesScoreDayThree" name="MensesScoreDayThree" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br>
+
+                    <label for="MensesScoreDayFour">Menses Score Day Four:</label>
+                    <select id="MensesScoreDayFour" name="MensesScoreDayFour" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br>
+
+                    <label for="MensesScoreDayFive">Menses Score Day Five:</label>
+                    <select id="MensesScoreDayFive" name="MensesScoreDayFive" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select><br>
+
+                    <label for="IntercourseInFertileWindow">Intercourse in Fertile Window:</label>
+                    <select id="IntercourseInFertileWindow" name="IntercourseInFertileWindow" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                    </select><br>
+
+                    <label for="NumberofDaysofIntercourse">Number of Days of Intercourse:</label>
+                    <input type="number" id="NumberofDaysofIntercourse" name="NumberofDaysofIntercourse" min="0" max="20" value="10" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;"><br>
+
+                    <label for="UnusualBleeding">Unusual Bleeding:</label>
+                    <select id="UnusualBleeding" name="UnusualBleeding" style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc; width: 100%;">
+                        <option value="0" selected>0</option>
+                        <option value="1">1</option>
+                    </select><br>
+                </div>
+            </div>
+            <!-- Кнопка "submit" для перехода к предсказанию модели -->
+            <button type="submit" style="margin-top: 20px; padding: 10px 20px; border-radius: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

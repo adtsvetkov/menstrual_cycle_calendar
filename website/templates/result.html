@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- То что указано в названии вкладки -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<!-- Основное тело страницы. В style как и ниже по документу прописаны css стили -->
+<body style="font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+     <!-- Блок с кнопками справа сверху -->
+    <div style="position: absolute; top: 20px; right: 80px; display: flex; gap: 10px; align-items: center;">
+    <form action="/logout" method="GET">
+        <button type="submit" style="padding: 5px 10px; border-radius: 10px; background-color: #f44336; color: white; border: none; cursor: pointer;">
+            Logout
+        </button>
+    </form>
+    <a href="/swagger" target="_blank" style="padding: 5px 10px; border-radius: 10px; background-color: #ffcc00; color: white; text-decoration: none; text-align: center; display: inline-block; cursor: pointer;">
+        API Docs
+    </a>
+    </div>
+     <!-- Подложка под вывод предсказаний -->
+    <div style="text-align: center; border: 2px solid #ccc; border-radius: 15px; padding: 20px; background-color: #f7f7f7; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <h1 style="margin-bottom: 20px;">Prediction Result</h1>
+        <!-- В prediction с бэка вставляется то, что предсказалось -->
+        <p>Prediction: <strong>{{ prediction }}</strong></p>
+        <!-- Кнопка для возврата к форме -->
+        <form action="/form" method="GET">
+            <button type="submit" style="padding: 10px 20px; border-radius: 10px; background-color: #2196F3; color: white; border: none; cursor: pointer;">Back</button>
+        </form>
+    </div>
+</body>
+</html>

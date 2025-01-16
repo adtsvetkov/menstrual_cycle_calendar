@@ -1,0 +1,135 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Menstrual Cycle Predictor",
+    "description": "Предсказатель длины менструального цикла с возможностью авторизации и использованием модели ML"
+  },
+  "host": "localhost:80",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["Авторизация"],
+        "summary": "Форма авторизации",
+        "description": "Возвращает страницу авторизации.",
+        "responses": {
+          "200": {
+            "description": "Успешный рендеринг страницы авторизации."
+          }
+        }
+      },
+      "post": {
+        "tags": ["Авторизация"],
+        "summary": "Обработка авторизации",
+        "description": "Проверяет логин и пароль, перенаправляет при успешной авторизации.",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Имя пользователя"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Пароль"
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Перенаправление на форму, если авторизация успешна."
+          },
+          "401": {
+            "description": "Неверное имя пользователя или пароль."
+          }
+        }
+      }
+    },
+    "/form": {
+      "get": {
+        "tags": ["Форма ввода информации"],
+        "summary": "Форма ввода данных",
+        "description": "Возвращает HTML-форму для ввода данных модели.",
+        "responses": {
+          "200": {
+            "description": "Успешный рендеринг формы."
+          }
+        }
+      },
+      "post": {
+        "tags": ["Форма ввода информации"],
+        "summary": "Обработка формы и предсказание",
+        "description": "Принимает данные формы и возвращает результат предсказания.",
+        "parameters": [
+          { "name": "CycleNumber", "in": "formData", "type": "integer", "required": true },
+          { "name": "Group", "in": "formData", "type": "integer", "required": true },
+          { "name": "CycleWithPeakorNot", "in": "formData", "type": "integer", "required": true },
+          { "name": "ReproductiveCategory", "in": "formData", "type": "integer", "required": true },
+          { "name": "EstimatedDayOfOvulation", "in": "formData", "type": "integer", "required": true },
+          { "name": "LengthOfLuteralPhase", "in": "formData", "type": "integer", "required": true },
+          { "name": "FirstDayofHigh", "in": "formData", "type": "integer", "required": true },
+          { "name": "TotalNumberofHighDays", "in": "formData", "type": "integer", "required": true },
+          { "name": "TotalHighPostPeak", "in": "formData", "type": "integer", "required": true },
+          { "name": "TotalNumberofPeakDays", "in": "formData", "type": "integer", "required": true },
+          { "name": "TotalDaysofFertility", "in": "formData", "type": "integer", "required": true },
+          { "name": "TotalFertilityFormula", "in": "formData", "type": "integer", "required": true },
+          { "name": "LengthofMenses", "in": "formData", "type": "integer", "required": true },
+          { "name": "MensesScoreDayOne", "in": "formData", "type": "integer", "required": true },
+          { "name": "MensesScoreDayTwo", "in": "formData", "type": "integer", "required": true },
+          { "name": "MensesScoreDayThree", "in": "formData", "type": "integer", "required": true },
+          { "name": "MensesScoreDayFour", "in": "formData", "type": "integer", "required": true },
+          { "name": "MensesScoreDayFive", "in": "formData", "type": "integer", "required": true },
+          { "name": "IntercourseInFertileWindow", "in": "formData", "type": "integer", "required": true },
+          { "name": "NumberofDaysofIntercourse", "in": "formData", "type": "integer", "required": true },
+          { "name": "UnusualBleeding", "in": "formData", "type": "integer", "required": true }
+        ],
+        "responses": {
+          "200": {
+            "description": "Успешное предсказание.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "prediction": {
+                  "type": "number",
+                  "description": "Результат предсказания."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/back": {
+      "get": {
+        "tags": ["Кнопки навигации"],
+        "summary": "Назад к форме",
+        "description": "Перенаправляет на страницу формы, если пользователь авторизован.",
+        "responses": {
+          "302": {
+            "description": "Перенаправление на страницу формы."
+          },
+          "401": {
+            "description": "Пользователь не авторизован."
+          }
+        }
+      }
+    },
+    "/logout": {
+      "get": {
+        "tags": ["Кнопки навигации"],
+        "summary": "Выход из системы",
+        "description": "Очищает сессию и перенаправляет на страницу авторизации.",
+        "responses": {
+          "302": {
+            "description": "Перенаправление на страницу авторизации."
+          }
+        }
+      }
+    }
+  }
+}

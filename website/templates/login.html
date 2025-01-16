@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- То что отображается в тексте вкладки сверху -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<!-- Основное тело страницы. В style как и ниже по документу прописаны css стили -->
+<body style="font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+    <!-- Кнопка справа сверху для перехода на swagger доку -->
+    <div style="position: absolute; top: 20px; right: 80px; display: flex; gap: 10px; align-items: center;">
+    <a href="/swagger" target="_blank" style="padding: 5px 10px; border-radius: 10px; background-color: #ffcc00; color: white; text-decoration: none; text-align: center; display: inline-block; cursor: pointer;">
+        API Docs
+    </a>
+    </div>
+    <!-- Подложка под ввод логина и пароля-->
+    <div style="text-align: center; border: 2px solid #ccc; border-radius: 15px; padding: 20px; background-color: #f7f7f7; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        <!-- Обработка ответа в случае некорректных логина и пароля -->
+        <h1 style="margin-bottom: 20px;">Login</h1>
+        {% if error %}
+        <p style="color: red; margin-bottom: 20px;">Invalid username or password</p>
+        {% endif %}
+        <form method="POST" action="/">
+            <!-- Поля для заполнения: логин и пароль-->
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;"><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required style="margin: 10px 0; padding: 8px; border-radius: 10px; border: 1px solid #ccc;"><br>
+
+            <!-- Кнопка "Login", отправляет информацию для проверки на корректность логина/пароля -->
+            <button type="submit" style="padding: 10px 20px; border-radius: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Login</button>
+        </form>
+    </div>
+</body>
+</html>
