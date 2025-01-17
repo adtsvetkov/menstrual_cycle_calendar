@@ -1,0 +1,40 @@
+@startuml
+[*] --> AuthPage
+
+state AuthPage {
+  [*] --> ShowingAuth
+  ShowingAuth : Показать страницу авторизации
+  note right of ShowingAuth
+    Ошибки:
+    - Поля пустые: 'Fill out this field'
+    - Неверные данные: 'Invalid username or password'
+  end note
+}
+
+state Form {
+  [*] --> ShowingForm
+  ShowingForm : Показать страницу формы
+}
+
+
+state Result {
+  [*] --> ShowingResult
+  ShowingResult : Показать результаты
+}
+
+state Docs {
+  [*] --> ShowingDocs
+  ShowingDocs : Показать документацию
+}
+
+ShowingAuth --> Docs : Нажата 'API Docs'
+ShowingAuth --> Form : Успешный логин
+Form --> Result : Нажата 'Submit'
+Form --> AuthPage : Нажата 'Logout'
+Form --> Docs : Нажата 'API Docs'
+Result --> AuthPage : Нажата 'Logout'
+Result --> Form : Нажата 'Back'
+Result --> Docs : Нажата 'API Docs'
+Docs --> AuthPage : Нажата 'Logout'
+
+@enduml
