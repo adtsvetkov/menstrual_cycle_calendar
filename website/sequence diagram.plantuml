@@ -1,0 +1,15 @@
+@startuml
+actor User
+
+participant UI
+participant WebServer
+participant MLModel
+
+User -> UI: Запуск веб-формы
+UI -> WebServer: Отправка данных о цикле (POST запрос)
+WebServer -> MLModel: Отправка данных
+MLModel -> MLModel: Обработка данных и получение предсказания
+MLModel -> WebServer: Возвращение предсказания
+WebServer -> UI: Передача предсказания
+UI -> User: Показать результат
+@enduml
